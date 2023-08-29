@@ -1,4 +1,4 @@
-package com.rabbit.plugins
+package com.rabbit.server.plugins
 
 import io.ktor.server.plugins.callloging.*
 import org.slf4j.event.*
@@ -9,5 +9,10 @@ fun Application.configureMonitoring() {
     install(CallLogging) {
         level = Level.INFO
         filter { call -> call.request.path().startsWith("/") }
+        format { call->
+            val language = call.request.headers["Accept-Language"]
+            val sessionId = call.request.headers["session_id"]
+            "Language: $language\nSessionId: $sessionId"
+        }
     }
 }

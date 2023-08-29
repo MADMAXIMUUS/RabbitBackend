@@ -16,8 +16,8 @@ plugins {
     id("org.flywaydb.flyway") version "8.5.4"
 }
 
-group = "com.rabbit"
-version = "0.0.1"
+group = "com.rabbit.server"
+version = "0.0.3"
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
 
@@ -43,7 +43,6 @@ dependencies {
     implementation("io.ktor:ktor-server-swagger-jvm:$ktorVersion")
 
     implementation("io.ktor:ktor-server-auth-jvm:$ktorVersion")
-    implementation("io.ktor:ktor-server-auth-jwt-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-sessions:$ktorVersion")
 
     implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
